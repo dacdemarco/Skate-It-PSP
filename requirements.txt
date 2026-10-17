@@ -1,0 +1,5 @@
+# tested with Python 3.9
+numpy>=1.21
+pillow>=9
+# only for the optional reverse-engineering helpers (tools/armdis.py, campaign_strs.py, vx_armcheck*.py)
+capstone>=5.0,<6
