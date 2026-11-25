@@ -1,0 +1,13 @@
+name: build
+on: [push, workflow_dispatch]
+jobs:
+  eboot:
+    runs-on: ubuntu-latest
+    container: pspdev/pspdev:latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: mkdir build && cd build && psp-cmake .. && make -j$(nproc)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: EBOOT
+          path: build/EBOOT.PBP
